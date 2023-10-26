@@ -1,23 +1,26 @@
-﻿public class Program
+﻿using System.Xml.Linq;
+
+public class Program
 {
-    public static void Main(string[] args)
+    private static void Main(string[] args)
     {
-        int n = 4, a = 0;
-        for (int i = 1; i <= n; i++)
+        Console.Write("Enter a string to Check Palindrome : ");
+        string name = Console.ReadLine();
+        string reverse = string.Empty;
+        foreach (char c in name)
         {
-            if (n % i == 0)
-            {
-                a++;
-            }
+            reverse = c + reverse;
         }
-        if (a == 2)
+        if (name.Equals(reverse, StringComparison.OrdinalIgnoreCase))
         {
-            Console.WriteLine("{0} is a Prime Number", n);
+            Console.WriteLine($"{name} is Palindrome");
         }
         else
         {
-            Console.WriteLine("Not a Prime Number");
+            Console.WriteLine($"{name} is not Palindrome");
         }
         Console.ReadLine();
+
+        Console.WriteLine("Hello, World!");
     }
 }
